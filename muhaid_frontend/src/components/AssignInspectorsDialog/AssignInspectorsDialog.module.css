@@ -1,0 +1,53 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  border-block-end: var(--border-hairline) solid var(--line);
+}
+.row:last-child {
+  border-block-end: none;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--space-1);
+}
+
+.email {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--ink-muted);
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: start;
+}
+
+.note {
+  margin-inline-start: auto;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.invalid {
+  margin-inline-start: auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--feedback-error);
+}
+
+.none {
+  color: var(--ink-muted);
+}

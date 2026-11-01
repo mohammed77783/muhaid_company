@@ -1,0 +1,24 @@
+.trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: var(--border-hairline) solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg-sunken);
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+@media print {
+  .trigger {
+    border-color: var(--line-strong);
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  // The Django extension treats every file under a `templates` folder as
+  // Django text, which hits src/admin-module/Templates/ on macOS.
+  "files.associations": {
+    "**/*.ts": "typescript"
+  }
+}

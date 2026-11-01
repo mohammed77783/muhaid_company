@@ -1,0 +1,20 @@
+node_modules
+dist
+dist-ssr
+
+# VITE_API_URL must come from the build argument, not a local env file
+.env*
+
+.git
+.gitignore
+.claude
+.vscode
+.idea
+.DS_Store
+graphify-out
+docs
+muhaid-design-system
+*.log
+*.local
+Dockerfile
+.dockerignore

@@ -1,0 +1,14 @@
+/* Doubled so it outranks the dialog's own width, whichever stylesheet loads first. */
+.viewer.viewer {
+  max-width: min(960px, 100%);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100dvh - 240px);
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  background: var(--bg-sunken);
+}

@@ -1,0 +1,32 @@
+.root {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--bg-surface);
+  border: var(--border-hairline) solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.label {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+
+.value {
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--ink-strong);
+  overflow-wrap: anywhere;
+  text-align: start;
+}
+
+@media print {
+  .root {
+    border-color: var(--line-strong);
+    break-inside: avoid;
+  }
+}

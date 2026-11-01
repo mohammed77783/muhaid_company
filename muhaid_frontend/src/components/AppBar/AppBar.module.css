@@ -1,0 +1,47 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--space-16);
+  padding-inline: var(--space-4);
+  background: var(--brand);
+  color: var(--brand-on);
+  z-index: var(--z-appbar);
+  --focus-ground: var(--brand);
+}
+
+.plain {
+  background: var(--bg-surface);
+  color: var(--ink-strong);
+  border-block-end: var(--border-hairline) solid var(--line);
+  --focus-ground: var(--bg-surface);
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+/* The title truncates on one line; it never wraps and never shrinks the bar. */
+.line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: start;
+}
+
+.subtitle {
+  font-size: 12px;
+  line-height: 18px;
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+@media print {
+  .root {
+    display: none;
+  }
+}

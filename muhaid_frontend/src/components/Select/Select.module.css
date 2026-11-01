@@ -1,0 +1,16 @@
+.box {
+  cursor: pointer;
+}
+
+/* The native arrow is replaced by the system's glyph, which sits over the select's end
+   so that a tap on it still opens the list. */
+.select {
+  appearance: none;
+  cursor: inherit;
+  padding-inline-end: calc(18px + var(--space-2));
+}
+
+.arrow {
+  pointer-events: none;
+  margin-inline-start: calc(-18px - var(--space-2));
+}

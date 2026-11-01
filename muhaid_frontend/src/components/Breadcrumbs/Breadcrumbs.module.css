@@ -1,0 +1,36 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.crumb {
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+}
+a.crumb {
+  color: var(--brand-text);
+  text-decoration: none;
+}
+a.crumb:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  color: var(--ink-faint);
+  display: inline-flex;
+}
+
+.current {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+@media print {
+  .root {
+    display: none;
+  }
+}

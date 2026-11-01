@@ -1,0 +1,58 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--space-12);
+  height: var(--space-12);
+  padding: 0;
+  border: var(--border-control) solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    color var(--duration-fast) var(--easing-standard);
+}
+.root:hover:not(:disabled) {
+  background: var(--bg-sunken);
+  color: var(--ink);
+}
+.root:active:not(:disabled) {
+  background: var(--bg-inset);
+}
+
+.outlined {
+  border-color: var(--line-strong);
+  background: var(--bg-surface);
+}
+
+.danger {
+  color: var(--feedback-error);
+}
+.danger:hover:not(:disabled) {
+  background: var(--feedback-error-bg);
+  color: var(--feedback-error);
+}
+
+.onbrand {
+  color: var(--brand-on);
+  --focus-ground: var(--brand);
+}
+.onbrand:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--brand-on);
+}
+
+.sm {
+  width: var(--space-8);
+  height: var(--space-8);
+  border-radius: var(--radius-sm);
+}
+
+.root:disabled {
+  color: var(--ink-disabled);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+}

@@ -1,0 +1,15 @@
+/* Clears the field app's bottom navigation (48px item + inset) on every screen. */
+.region {
+  position: fixed;
+  inset-block-end: calc(var(--space-16) + var(--space-2));
+  inset-inline: var(--space-4);
+  z-index: var(--z-snackbar);
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .region {
+    inset-block-end: var(--space-6);
+  }
+}

@@ -1,0 +1,10 @@
+.root {
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+}
+
+/* Directional glyphs mirror; symbolic ones (check, clock, camera) never do. */
+[dir='rtl'] .dir {
+  transform: scaleX(-1);
+}

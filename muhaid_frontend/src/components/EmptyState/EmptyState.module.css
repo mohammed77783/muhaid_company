@@ -1,0 +1,34 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-16) var(--space-6);
+  text-align: center;
+  color: var(--ink-muted);
+}
+
+.mark {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-sunken);
+  color: var(--ink-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+.body {
+  font-size: 15px;
+  line-height: 25px;
+  max-width: 46ch;
+}

@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hint {
+  flex: 1;
+  min-width: 180px;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--ink-muted);
+}
+
+.counter {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  unicode-bidi: isolate;
+}

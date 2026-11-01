@@ -1,0 +1,72 @@
+.root {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--bg-surface);
+  border: var(--border-hairline) solid var(--line);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--duration-fast) var(--easing-standard),
+    box-shadow var(--duration-fast) var(--easing-standard);
+}
+.root:hover {
+  border-color: var(--line-strong);
+}
+
+.handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-8);
+  min-height: var(--space-8);
+  flex: none;
+  padding: 0;
+  color: var(--ink-faint);
+  cursor: grab;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  /* A touch on the handle drags the row rather than scrolling the page. */
+  touch-action: none;
+}
+.handle:hover {
+  color: var(--ink);
+  background: var(--bg-sunken);
+}
+
+.number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-faint);
+  min-width: 24px;
+  padding-block-start: 3px;
+  flex: none;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--ink);
+  text-align: start;
+}
+
+.dragging {
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand);
+  opacity: 0.95;
+}
+
+.locked {
+  background: var(--bg-sunken);
+}
+
+.lock {
+  color: var(--ink-disabled);
+  margin-block-start: var(--space-1);
+}

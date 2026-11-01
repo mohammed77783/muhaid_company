@@ -1,0 +1,30 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.count {
+  direction: ltr;
+  unicode-bidi: isolate;
+  position: absolute;
+  /* Off the corner, so the glyph it counts stays readable. */
+  inset-block-start: -8px;
+  inset-inline-end: -14px;
+  min-width: 20px;
+  height: 20px;
+  padding-inline: var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--answer-no);
+  color: var(--answer-no-on);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  border: var(--border-emphasis) solid var(--bg-surface);
+}
+
+.quiet {
+  background: var(--ink-muted);
+  color: var(--bg-surface);
+}

@@ -1,0 +1,45 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.heading {
+  min-width: 0;
+}
+
+.title {
+  font-size: 22px;
+  line-height: 34px;
+  font-weight: 600;
+  color: var(--ink-strong);
+  text-align: start;
+}
+
+.subtitle {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ink-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-inline-start: auto;
+}
+
+@media print {
+  .actions {
+    display: none;
+  }
+}

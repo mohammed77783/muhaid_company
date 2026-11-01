@@ -1,0 +1,124 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--space-12); /* 48px, the gloved-hand floor */
+  padding-inline: var(--space-5);
+  border: var(--border-control) solid transparent;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard),
+    color var(--duration-fast) var(--easing-standard);
+}
+
+.sm {
+  min-height: var(--space-8);
+  padding-inline: var(--space-3);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.primary {
+  background: var(--brand);
+  color: var(--brand-on);
+}
+.primary:hover:not(:disabled) {
+  background: var(--brand-hover);
+}
+.primary:active:not(:disabled) {
+  background: var(--brand-pressed);
+}
+
+.secondary {
+  background: var(--bg-surface);
+  color: var(--brand-text);
+  border-color: var(--line-strong);
+}
+.secondary:hover:not(:disabled) {
+  background: var(--brand-surface);
+  border-color: var(--line-emphasis);
+}
+.secondary:active:not(:disabled) {
+  background: var(--brand-surface);
+  border-color: var(--brand);
+}
+
+.text {
+  background: transparent;
+  color: var(--brand-text);
+  padding-inline: var(--space-3);
+}
+.text:hover:not(:disabled) {
+  background: var(--brand-surface);
+}
+.text:active:not(:disabled) {
+  background: var(--brand-surface);
+  color: var(--brand-pressed);
+}
+
+.danger {
+  background: var(--feedback-error);
+  color: var(--ink-inverse);
+}
+.danger:hover:not(:disabled) {
+  filter: brightness(0.92);
+}
+.danger:active:not(:disabled) {
+  filter: brightness(0.85);
+}
+
+.root:disabled {
+  background: var(--bg-inset);
+  color: var(--ink-disabled);
+  border-color: var(--line);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+}
+.text:disabled,
+.secondary:disabled {
+  background: transparent;
+}
+
+.root.loading {
+  color: transparent;
+  pointer-events: none;
+}
+
+.spin {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  width: 18px;
+  height: 18px;
+  margin-block-start: -9px;
+  margin-inline-start: -9px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-block-start-color: transparent;
+  color: var(--brand-on);
+  animation: spin 700ms linear infinite;
+}
+.secondary .spin,
+.text .spin {
+  color: var(--brand-text);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

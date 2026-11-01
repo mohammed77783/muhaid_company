@@ -1,0 +1,414 @@
+/* Global layer: fonts, design tokens, resets and the few utilities shared by every
+   component. Tokens are generated from muhaid-design-system/tokens.json; edit them there
+   and regenerate rather than adding values here. Component styles live in CSS Modules. */
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('./assets/fonts/IBMPlexSansArabic-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('./assets/fonts/IBMPlexSansArabic-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('./assets/fonts/IBMPlexSansArabic-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('./assets/fonts/IBMPlexSansArabic-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('./assets/fonts/IBMPlexMono-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('./assets/fonts/IBMPlexMono-Medium.woff2') format('woff2');
+}
+
+/* ---------- tokens ---------- */
+
+:root {
+  color-scheme: light;
+  --space-0\.5: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+  --shadow-none: none;
+  --border-hairline: 1px;
+  --border-control: 1px;
+  --border-emphasis: 2px;
+  --border-focus: 3px;
+  --border-focus-gap: 2px;
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-sheet: 200ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-exit: cubic-bezier(0.4, 0, 1, 1);
+  --z-base: 0;
+  --z-sticky: 100;
+  --z-appbar: 200;
+  --z-scrim: 300;
+  --z-dialog: 400;
+  --z-snackbar: 500;
+  --z-tooltip: 600;
+  --opacity-disabled: 0.55;
+  --opacity-skeleton: 0.6;
+  --font-sans: 'IBM Plex Sans Arabic', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+  --breakpoint-xs: 0px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1536px;
+  --bg-page: #f5f2ec;
+  --bg-surface: #fcfbf7;
+  --bg-sunken: #eae6de;
+  --bg-inset: #e3ded4;
+  --bg-scrim: #1b2426a6;
+  --ink-strong: #17201f;
+  --ink: #232d2d;
+  --ink-muted: #4c5756;
+  --ink-faint: #5f6a69;
+  --ink-disabled: #7a8382;
+  --ink-inverse: #fcfbf7;
+  --line: #ddd7cc;
+  --line-strong: #767f7e;
+  --line-emphasis: #4c5756;
+  --brand: #265a61;
+  --brand-hover: #1e4a50;
+  --brand-pressed: #173c41;
+  --brand-on: #fcfbf7;
+  --brand-surface: #e6eeee;
+  --brand-text: #1f5057;
+  --focus-ring: #0f5a66;
+  --answer-yes: #416e51;
+  --answer-yes-bg: #edf3ee;
+  --answer-yes-on: #fcfbf7;
+  --answer-no: #8a3114;
+  --answer-no-bg: #f8e9e3;
+  --answer-no-on: #fcfbf7;
+  --answer-na: #515c5b;
+  --answer-na-bg: #ebe8e2;
+  --answer-na-on: #fcfbf7;
+  --sync-pending: #714c06;
+  --sync-pending-bg: #f7edda;
+  --sync-sending: #265a61;
+  --sync-sending-bg: #e6eeee;
+  --sync-sent: #416e51;
+  --sync-sent-bg: #edf3ee;
+  --sync-failed: #8e2a22;
+  --sync-failed-bg: #f9e7e5;
+  --template-upcoming: #355a77;
+  --template-upcoming-bg: #e8eef3;
+  --template-active: #416e51;
+  --template-active-bg: #edf3ee;
+  --template-ended: #515c5b;
+  --template-ended-bg: #ebe8e2;
+  --user-active: #416e51;
+  --user-active-bg: #edf3ee;
+  --user-deactivated: #596463;
+  --user-deactivated-bg: #ebe8e2;
+  --feedback-info: #355a77;
+  --feedback-info-bg: #e8eef3;
+  --feedback-success: #416e51;
+  --feedback-success-bg: #edf3ee;
+  --feedback-warning: #714c06;
+  --feedback-warning-bg: #f7edda;
+  --feedback-error: #8e2a22;
+  --feedback-error-bg: #f9e7e5;
+  --shadow-sm: 0 1px 2px rgba(23, 32, 31, 0.07);
+  --shadow-md: 0 2px 8px rgba(23, 32, 31, 0.09);
+  --shadow-lg: 0 8px 28px rgba(23, 32, 31, 0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg-page: #14191a;
+    --bg-surface: #1d2324;
+    --bg-sunken: #0e1213;
+    --bg-inset: #262d2e;
+    --bg-scrim: #070a0ab8;
+    --ink-strong: #f2efe8;
+    --ink: #e4e0d8;
+    --ink-muted: #a9b1b0;
+    --ink-faint: #949c9b;
+    --ink-disabled: #6b7473;
+    --ink-inverse: #14191a;
+    --line: #2e3536;
+    --line-strong: #6a7372;
+    --line-emphasis: #949c9b;
+    --brand: #6fb0b8;
+    --brand-hover: #8ac3c9;
+    --brand-pressed: #9ed0d5;
+    --brand-on: #0f2326;
+    --brand-surface: #1b3338;
+    --brand-text: #8ec5cc;
+    --focus-ring: #67c7d6;
+    --answer-yes: #9ad3ab;
+    --answer-yes-bg: #18291e;
+    --answer-yes-on: #0d1f14;
+    --answer-no: #d9815c;
+    --answer-no-bg: #30201a;
+    --answer-no-on: #2a1409;
+    --answer-na: #a3abaa;
+    --answer-na-bg: #23292a;
+    --answer-na-on: #15191a;
+    --sync-pending: #dcae5c;
+    --sync-pending-bg: #2b2314;
+    --sync-sending: #6fb0b8;
+    --sync-sending-bg: #1b3338;
+    --sync-sent: #9ad3ab;
+    --sync-sent-bg: #18291e;
+    --sync-failed: #ea8e86;
+    --sync-failed-bg: #301a1a;
+    --template-upcoming: #8bb6d6;
+    --template-upcoming-bg: #19242e;
+    --template-active: #9ad3ab;
+    --template-active-bg: #18291e;
+    --template-ended: #a3abaa;
+    --template-ended-bg: #23292a;
+    --user-active: #9ad3ab;
+    --user-active-bg: #18291e;
+    --user-deactivated: #949c9b;
+    --user-deactivated-bg: #23292a;
+    --feedback-info: #8bb6d6;
+    --feedback-info-bg: #19242e;
+    --feedback-success: #9ad3ab;
+    --feedback-success-bg: #18291e;
+    --feedback-warning: #dcae5c;
+    --feedback-warning-bg: #2b2314;
+    --feedback-error: #ea8e86;
+    --feedback-error-bg: #301a1a;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.58);
+    --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.66);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-page: #14191a;
+  --bg-surface: #1d2324;
+  --bg-sunken: #0e1213;
+  --bg-inset: #262d2e;
+  --bg-scrim: #070a0ab8;
+  --ink-strong: #f2efe8;
+  --ink: #e4e0d8;
+  --ink-muted: #a9b1b0;
+  --ink-faint: #949c9b;
+  --ink-disabled: #6b7473;
+  --ink-inverse: #14191a;
+  --line: #2e3536;
+  --line-strong: #6a7372;
+  --line-emphasis: #949c9b;
+  --brand: #6fb0b8;
+  --brand-hover: #8ac3c9;
+  --brand-pressed: #9ed0d5;
+  --brand-on: #0f2326;
+  --brand-surface: #1b3338;
+  --brand-text: #8ec5cc;
+  --focus-ring: #67c7d6;
+  --answer-yes: #9ad3ab;
+  --answer-yes-bg: #18291e;
+  --answer-yes-on: #0d1f14;
+  --answer-no: #d9815c;
+  --answer-no-bg: #30201a;
+  --answer-no-on: #2a1409;
+  --answer-na: #a3abaa;
+  --answer-na-bg: #23292a;
+  --answer-na-on: #15191a;
+  --sync-pending: #dcae5c;
+  --sync-pending-bg: #2b2314;
+  --sync-sending: #6fb0b8;
+  --sync-sending-bg: #1b3338;
+  --sync-sent: #9ad3ab;
+  --sync-sent-bg: #18291e;
+  --sync-failed: #ea8e86;
+  --sync-failed-bg: #301a1a;
+  --template-upcoming: #8bb6d6;
+  --template-upcoming-bg: #19242e;
+  --template-active: #9ad3ab;
+  --template-active-bg: #18291e;
+  --template-ended: #a3abaa;
+  --template-ended-bg: #23292a;
+  --user-active: #9ad3ab;
+  --user-active-bg: #18291e;
+  --user-deactivated: #949c9b;
+  --user-deactivated-bg: #23292a;
+  --feedback-info: #8bb6d6;
+  --feedback-info-bg: #19242e;
+  --feedback-success: #9ad3ab;
+  --feedback-success-bg: #18291e;
+  --feedback-warning: #dcae5c;
+  --feedback-warning-bg: #2b2314;
+  --feedback-error: #ea8e86;
+  --feedback-error-bg: #301a1a;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.58);
+  --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.66);
+}
+
+/* ---------- reset ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg-page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 25px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* The focus ring's gap is cut in the element's own ground; components override it. */
+  --focus-ground: var(--bg-surface);
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+  margin: 0;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+a {
+  color: var(--brand-text);
+}
+
+/* Focus: a 3px ring outside a 2px gap, so it reads on pale and saturated grounds alike. */
+:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--border-focus-gap) var(--focus-ground),
+    0 0 0 calc(var(--border-focus-gap) + var(--border-focus)) var(--focus-ring);
+}
+
+/* ---------- utilities ---------- */
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Bidi isolation. A run that mixes digits with punctuation ("34 / 280", "PRJ-2026-001")
+   reorders inside Arabic text unless it is isolated and given its own direction. */
+.code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.iso {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.iso-text {
+  unicode-bidi: isolate;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Printing drops chrome; components mark themselves with .no-print. */
+@media print {
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

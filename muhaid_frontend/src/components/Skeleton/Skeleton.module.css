@@ -1,0 +1,48 @@
+.bone {
+  background: var(--bg-inset);
+  border-radius: var(--radius-sm);
+  animation: pulse 1.4s var(--easing-standard) infinite;
+}
+
+.text {
+  height: 14px;
+  margin-block: 5px;
+}
+
+.block {
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.chip {
+  height: 22px;
+  width: 76px;
+  flex: none;
+  border-radius: var(--radius-pill);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  background: var(--bg-surface);
+  border: var(--border-hairline) solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+.cardGrow {
+  flex: 1;
+  min-width: 0;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: var(--opacity-skeleton);
+  }
+  50% {
+    opacity: 1;
+  }
+}

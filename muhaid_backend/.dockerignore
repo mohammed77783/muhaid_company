@@ -1,0 +1,26 @@
+node_modules
+dist
+# a stale tsbuildinfo can make nest build skip writing dist/
+*.tsbuildinfo
+
+# secrets: values come from container environment variables
+.env*
+
+# local photos and data
+uploads
+database.sql
+
+.git
+.gitignore
+.gitattributes
+.vscode
+.DS_Store
+
+# not needed to build or run
+test
+docs
+*.md
+coverage
+*.log
+Dockerfile
+.dockerignore

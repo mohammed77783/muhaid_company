@@ -1,0 +1,87 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 500;
+  border: var(--border-hairline) solid transparent;
+  white-space: nowrap;
+}
+
+.sm {
+  font-size: 12px;
+  line-height: 18px;
+  padding-block: 0;
+}
+
+.yes {
+  background: var(--answer-yes-bg);
+  color: var(--answer-yes);
+  border-color: var(--answer-yes);
+}
+.no {
+  background: var(--answer-no-bg);
+  color: var(--answer-no);
+  border-color: var(--answer-no);
+}
+.na {
+  background: var(--answer-na-bg);
+  color: var(--answer-na);
+  border-color: var(--answer-na);
+}
+.pending {
+  background: var(--sync-pending-bg);
+  color: var(--sync-pending);
+  border-color: var(--sync-pending);
+}
+.sending {
+  background: var(--sync-sending-bg);
+  color: var(--sync-sending);
+  border-color: var(--sync-sending);
+}
+.sent {
+  background: var(--sync-sent-bg);
+  color: var(--sync-sent);
+  border-color: var(--sync-sent);
+}
+.failed {
+  background: var(--sync-failed-bg);
+  color: var(--sync-failed);
+  border-color: var(--sync-failed);
+}
+.upcoming {
+  background: var(--template-upcoming-bg);
+  color: var(--template-upcoming);
+  border-color: var(--template-upcoming);
+}
+.active {
+  background: var(--template-active-bg);
+  color: var(--template-active);
+  border-color: var(--template-active);
+}
+.ended {
+  background: var(--template-ended-bg);
+  color: var(--template-ended);
+  border-color: var(--template-ended);
+}
+.userActive {
+  background: var(--user-active-bg);
+  color: var(--user-active);
+  border-color: var(--user-active);
+}
+.deactivated {
+  background: var(--user-deactivated-bg);
+  color: var(--user-deactivated);
+  border-color: var(--user-deactivated);
+}
+
+/* Printed records stay legible in black and white. */
+@media print {
+  .root {
+    border-width: var(--border-control);
+  }
+}

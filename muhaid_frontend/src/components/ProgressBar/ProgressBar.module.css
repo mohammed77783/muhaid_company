@@ -1,0 +1,27 @@
+.root {
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-inset);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--sync-sending);
+  border-radius: inherit;
+  transition: width var(--duration-base) var(--easing-standard);
+}
+
+.indeterminate .fill {
+  width: 40%;
+  animation: slide 1.2s var(--easing-standard) infinite;
+}
+
+@keyframes slide {
+  0% {
+    margin-inline-start: -40%;
+  }
+  100% {
+    margin-inline-start: 100%;
+  }
+}

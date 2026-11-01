@@ -1,0 +1,56 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--ink-strong);
+  color: var(--ink-inverse);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 14px;
+  line-height: 22px;
+  --focus-ground: var(--ink-strong);
+}
+
+.icon {
+  flex: none;
+}
+.error .icon {
+  color: var(--sync-failed-bg);
+}
+.success .icon {
+  color: var(--sync-sent-bg);
+}
+
+.message {
+  flex: 1;
+  min-width: 0;
+}
+
+.action {
+  flex: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-inverse);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.dismiss {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-8);
+  height: var(--space-8);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-inverse);
+  border-radius: var(--radius-sm);
+}

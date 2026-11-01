@@ -1,0 +1,1 @@
+export { InspectionDetail } from './InspectionDetail';

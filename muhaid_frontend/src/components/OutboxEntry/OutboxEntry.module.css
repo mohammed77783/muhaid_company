@@ -1,0 +1,11 @@
+.progress {
+  display: block;
+  margin-block-start: var(--space-3);
+}
+
+.reason {
+  flex: 1 1 100%;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--sync-failed);
+}

@@ -1,0 +1,66 @@
+.root {
+  width: 248px;
+  flex: none;
+  padding: var(--space-4) var(--space-3);
+  background: var(--bg-surface);
+  border-inline-end: var(--border-hairline) solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3) var(--space-5);
+}
+
+.brandIcon {
+  color: var(--brand);
+}
+
+.word {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink-strong);
+  letter-spacing: 0.01em;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--space-12);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--ink-muted);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    color var(--duration-fast) var(--easing-standard);
+}
+.item:hover {
+  background: var(--bg-sunken);
+  color: var(--ink);
+}
+.item[aria-current='page'] {
+  background: var(--brand-surface);
+  color: var(--brand-text);
+  font-weight: 600;
+}
+
+.count {
+  margin-inline-start: auto;
+  font-size: 12px;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+@media print {
+  .root {
+    display: none;
+  }
+}

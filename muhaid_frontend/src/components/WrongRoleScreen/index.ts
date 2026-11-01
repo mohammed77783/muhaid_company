@@ -1,0 +1,1 @@
+export { WrongRoleScreen } from './WrongRoleScreen';

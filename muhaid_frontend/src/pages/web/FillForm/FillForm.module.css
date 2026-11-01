@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.top {
+  flex: none;
+}
+
+.loading {
+  padding: var(--space-4);
+}

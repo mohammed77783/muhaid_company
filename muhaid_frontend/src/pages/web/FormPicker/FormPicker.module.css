@@ -1,0 +1,38 @@
+.freshness {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--ink-muted);
+}
+
+.group {
+  margin-block-start: var(--space-3);
+}
+
+/* The project's code and name on a hairline rule: how a day on site is organised. */
+.groupHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  margin-block-end: var(--space-2);
+}
+.groupHead::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}

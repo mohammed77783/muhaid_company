@@ -1,0 +1,18 @@
+.box {
+  position: relative;
+}
+
+.input {
+  text-align: start;
+}
+
+/* The native indicator is invisible but covers the box, so a tap anywhere opens the
+   calendar and the system's own glyph is the only one showing. */
+.input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}

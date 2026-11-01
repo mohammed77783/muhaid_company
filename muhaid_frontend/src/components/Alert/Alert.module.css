@@ -1,0 +1,76 @@
+.root {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: var(--border-hairline) solid transparent;
+  border-inline-start-width: var(--border-focus);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--ink);
+}
+
+.icon {
+  flex: none;
+  margin-block-start: 2px;
+}
+
+.title {
+  font-weight: 600;
+  display: block;
+}
+
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+
+.info {
+  background: var(--feedback-info-bg);
+  border-color: var(--feedback-info);
+  --focus-ground: var(--feedback-info-bg);
+}
+.info .icon {
+  color: var(--feedback-info);
+}
+
+.success {
+  background: var(--feedback-success-bg);
+  border-color: var(--feedback-success);
+  --focus-ground: var(--feedback-success-bg);
+}
+.success .icon {
+  color: var(--feedback-success);
+}
+
+.warning {
+  background: var(--feedback-warning-bg);
+  border-color: var(--feedback-warning);
+  --focus-ground: var(--feedback-warning-bg);
+}
+.warning .icon {
+  color: var(--feedback-warning);
+}
+
+.error {
+  background: var(--feedback-error-bg);
+  border-color: var(--feedback-error);
+  --focus-ground: var(--feedback-error-bg);
+}
+.error .icon {
+  color: var(--feedback-error);
+}
+
+/* Belongs to the window rather than to any one card: square and full-bleed. */
+.offline {
+  background: var(--bg-inset);
+  border-color: var(--ink-muted);
+  border-radius: 0;
+  border-width: 0;
+  border-block-end-width: var(--border-hairline);
+  --focus-ground: var(--bg-inset);
+}
+.offline .icon {
+  color: var(--ink-muted);
+}

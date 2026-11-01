@@ -1,0 +1,56 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--space-12);
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.box {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  padding: 0;
+  cursor: inherit;
+  border: var(--border-emphasis) solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-on);
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard);
+}
+.root:hover .box {
+  border-color: var(--line-emphasis);
+}
+
+.checked .box,
+.checked:hover .box {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.error .box {
+  border-color: var(--feedback-error);
+}
+
+.disabled {
+  color: var(--ink-disabled);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+}
+.disabled .box,
+.disabled:hover .box {
+  background: var(--bg-inset);
+  border-color: var(--line);
+}
+/* An already-assigned row stays visibly ticked while disabled. */
+.disabled.checked .box,
+.disabled.checked:hover .box {
+  color: var(--ink-disabled);
+}
