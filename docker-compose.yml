@@ -1,0 +1,76 @@
+name: muhaid
+
+# Shared by backend and tools. Host is "db" (the service name), port 5432 (inside the network).
+x-database-url: &database-url
+  DATABASE_URL: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}@db:5432/${POSTGRES_DB:-muhaid}
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-muhaid}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      # localhost only: for psql/TablePlus on this machine, not reachable from the network
+      - "127.0.0.1:${DB_HOST_PORT:-5434}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build:
+      context: ./muhaid_backend
+    restart: unless-stopped
+    environment:
+      <<: *database-url
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env (32+ characters)}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-8h}
+      UPLOAD_DIR: /app/uploads
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:8080}
+    volumes:
+      - uploads:/app/uploads
+    ports:
+      - "${BACKEND_HOST_PORT:-3000}:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./muhaid_frontend
+      args:
+        # Baked into the JavaScript at build time. Must be reachable from the BROWSER.
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:3000}
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_HOST_PORT:-8080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  # Manual jobs. Never started by `up`. Run them yourself, for example:
+  #   docker compose run --rm tools npm run db:migrate
+  #   docker compose run --rm tools npm run db:seed
+  tools:
+    build:
+      context: ./muhaid_backend
+      target: tools
+    profiles: ["tools"]
+    environment:
+      <<: *database-url
+      ADMIN_NAME: ${ADMIN_NAME:-Admin}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  uploads:
